@@ -1,37 +1,44 @@
-# Personal AI Employee — Bronze Tier
+🥉 Personal AI Employee — Bronze Tier
+📌 Overview
 
-## What It Is
+Personal AI Employee is an automated AI-powered assistant that monitors a designated file drop folder and processes incoming items intelligently using Claude Code and Obsidian.
 
-A personal AI employee that monitors a file drop folder and processes items using Claude Code and Obsidian. When you drop files into a watched folder, the system automatically creates action items, classifies them by priority, processes them, and maintains a real-time dashboard of activity.
+When files are added to the watched directory, the system automatically:
 
-## Architecture
+Detects new items
 
-```
+Moves them to a processing queue
+
+Classifies them by priority
+
+Executes AI-driven actions
+
+Updates a real-time dashboard
+
+This creates a lightweight autonomous workflow system.
 ┌─────────────┐    ┌──────────────┐    ┌───────────────┐    ┌─────────────┐    ┌────────┐
 │ Drop Folder │ -> │ File Watcher │ -> │ /Needs_Action │ -> │ Claude Code │ -> │ /Done  │
 │ ~/AI_Drop   │    │  (watchdog)  │    │               │    │  (skills)   │    │        │
 └─────────────┘    └──────────────┘    └───────────────┘    └─────────────┘    └────────┘
-```
+🛠 Tech Stack
+Component	Role
+Claude Code	AI task processing and automation
+Obsidian	Vault interface and dashboard visualization
+Python + watchdog	Real-time file system monitoring
+Node.js	Runtime support
+📦 Prerequisites
 
-## Tech Stack
+Before running the system, ensure you have:
 
-| Component | Purpose |
-|-----------|---------|
-| Claude Code | AI processing and task execution |
-| Obsidian | Vault interface and dashboard viewing |
-| Python + watchdog | File system monitoring |
+Claude Code installed
 
-## Prerequisites
+Python 3.13+
 
-- Claude Code
-- Python 3.13+
-- Obsidian
-- Node.js v24+
+Obsidian
 
-## Quick Start
-
-```bash
-# 1. Clone repo
+Node.js v24+
+🚀 Quick Start
+# 1. Clone repository
 git clone <repo-url>
 cd AI_Employee_Vault
 
@@ -41,37 +48,41 @@ uv sync
 # 3. Open vault in Obsidian
 # File -> Open Vault -> Select this folder
 
-# 4. Configure environment
+# 4. Configure environment variables
 cp .env.example .env
 
-# 5. Start the file watcher
+# 5. Start file watcher
 python watchers/filesystem_watcher.py
 
-# 6. Test it
-# Drop any file into ~/AI_Drop and watch it appear in /Needs_Action
-```
+# 6. Test system
+# Drop any file into ~/AI_Drop
+# It will automatically move to /Needs_Action and process
+🥉 Tier Description
 
-## Tier
+Bronze Tier provides:
 
-**Bronze** — File monitoring and basic processing.
+Automated file monitoring
 
-## Folder Structure
+Basic AI-powered processing
 
-```
+Priority classification
+
+Dashboard updates
+
+Structured vault organization
+
+📁 Project Structure
 AI_Employee_Vault/
-├── Inbox/              # Raw incoming items
-├── Needs_Action/       # Items ready for processing
-├── Done/               # Completed items
-├── watchers/           # Python file watchers
-├── .claude/skills/     # Agent skills
-├── Dashboard.md        # Real-time status
-├── Company_Handbook.md # Rules of engagement
-└── CLAUDE.md           # Claude Code instructions
-```
+├── Inbox/               # Incoming raw items
+├── Needs_Action/        # Items queued for AI processing
+├── Done/                # Completed and processed items
+├── watchers/            # File monitoring scripts
+├── .claude/skills/      # AI agent skill definitions
+├── Dashboard.md         # Live activity dashboard
+├── Company_Handbook.md  # Operational guidelines
+└── CLAUDE.md            # Claude Code instructions
 
-## Agent Skills
-
-| Skill | Description |
-|-------|-------------|
-| `file-processing` | Process items from /Needs_Action, classify priority, move to /Done |
-| `vault-management` | Update Dashboard.md, track file counts, maintain structure |
+🤖 Agent Skills
+Skill	Function
+file-processing	Processes items, assigns priority, moves to /Done
+vault-management	Updates dashboard, tracks file status, maintains structure
